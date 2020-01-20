@@ -1,47 +1,32 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { required, email } from '../../utils/validate';
+import renderDatePicker from './renderDatePicker/renderDatePicker';
+import renderField from './renderField/renderField';
 
-const renderField = ({
-  input,
-  label,
-  type,
-  meta: { touched, error }
-}) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && (error && <span>{error}</span>)}
-    </div>
-  </div>
-)
+import './Form.css';
 
-const FieldLevelValidationForm = props => {
-  const { handleSubmit, submitting } = props
+const FieldLevelValidationForm = ({ handleSubmit, submitting }) => {
+  const fields = [
+    {name: 'firstName', type: 'text', component: renderField, label: 'First Name', validate: [required]},
+    {name: 'lastName', type: 'text', component: renderField, label: 'Last Name', validate: [required]},
+    {name: 'email', type: 'email', component: renderField, label: 'Email', validate: [email, required]},
+    {name: 'date', type: 'date', component: renderDatePicker, label: 'Choose Event Date', validate: [required]}
+  ];
+
   return (
     <form onSubmit={handleSubmit}>
-      <Field
-        name="firstName"
-        type="text"
-        component={renderField}
-        label="First Name"
-        validate={[required]}
-      />
-      <Field
-        name="lastName"
-        type="text"
-        component={renderField}
-        label="Last Name"
-        validate={[required]}
-      />
-      <Field
-        name="email"
-        type="email"
-        component={renderField}
-        label="Email"
-        validate={[email]}
-      />
+      {
+        fields.map(fields => (
+          <Field
+            name={fields['name']}
+            type={fields['text']}
+            component={fields['component']}
+            label={fields['label']}
+            validate={fields['validate']}
+          />
+        ))
+      }
       <div>
         <button type="submit" disabled={submitting}>
           Submit
