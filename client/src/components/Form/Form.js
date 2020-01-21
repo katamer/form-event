@@ -15,7 +15,7 @@ const FieldLevelValidationForm = ({ handleSubmit, submitting }) => {
   ];
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form__wrapper" onSubmit={handleSubmit}>
       {
         fields.map(fields => (
           <Field
@@ -27,9 +27,9 @@ const FieldLevelValidationForm = ({ handleSubmit, submitting }) => {
           />
         ))
       }
-      <div>
-        <button type="submit" disabled={submitting}>
-          Submit
+      <div className="form__button-wrapper">
+        <button className="form__button" type="submit" disabled={submitting}>
+          Join Event
         </button>
       </div>
     </form>

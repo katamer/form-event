@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const renderDatePicker = ({input, label, type, meta: {touched, error} }) => (
    <div>
-     <label>{label}</label>
+     <label className="form__label">{label}</label>
      <div>
         <DatePicker
           {...input}

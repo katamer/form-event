@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import Form from './components/Form/Form.js';
 import './App.css';
-import ContactPage from './components/ContactPage/ContactPage.js';
 
 function App() {
   return (
-    <div className="App">
-      <ContactPage />
+    <div className="app">
+      <Form />
     </div>
   );
 }

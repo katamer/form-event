@@ -1,5 +1,33 @@
+.form__wrapper {
+  border: 1px solid #8a8a5c;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.form__button-wrapper {
+  text-align: center;
+}
+
+.form__label {
+  margin: .5rem 0 0;
+  font-weight: 500;
+}
+
+.form__button {
+ color: #fff !important;
+ text-transform: uppercase;
+ text-decoration: none;
+ background: #3d3d29;
+ padding: 10px;
+ display: inline-block;
+ border: none;
+ transition: all 0.4s ease 0s;
+ margin-top: 10px;
+}
+
 .form__error {
   font-weight: bold;
   color: #800000;
   display: block;
 }
+
