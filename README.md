@@ -2,12 +2,15 @@
 ### Setup
 
 * Clone this project
-
-* Install packages for app (call in project directory):
+* For development make sure you have instlled nodemon globally if not install it, calling in /server directory:
+```bash
+$ npm install nodemon -g
+```
+* Call in `server` directory to install packages for server: 
 ```bash
 $ npm install
 ```
-* Then call in `client` directory:
+* Then call in `client` directory to install packages for client:
 ```bash
 $ npm install
 ```
