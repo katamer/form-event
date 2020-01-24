@@ -17,7 +17,5 @@
     "url": "https://github.com/katamer/form-event/issues"
   },
   "homepage": "https://github.com/katamer/form-event#readme",
-  "dependencies": {
-    "validator": "^12.1.0"
-  }
+  "dependencies": {}
 }
