@@ -9,8 +9,7 @@ class Database {
             console.log('Database connection successful');
             return connection;
         } catch (e) {
-            console.error('Database connection error here');
-			console.error(e);
+			      console.error(e);
             process.exit(1);
         }
     }

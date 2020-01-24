@@ -8,7 +8,6 @@ const { api: { port } } = require('./config/config.js'),
 
         app.listen(port, err => {
             if (err) {
-                console.err(err);
                 process.exit(1);
             }
             console.log(`Your server is ready on port ${port}!`);

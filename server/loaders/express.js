@@ -6,7 +6,7 @@ const bodyParser = require('body-parser'),
 
 module.exports = (app) => {
     if(env !== 'production') {
-       app.use(require('morgan')('dev'));        
+       app.use(require('morgan')('dev'));
     }
 
     app.set('trust proxy', true);
@@ -23,11 +23,13 @@ module.exports = (app) => {
     });
 
     app.use((err, req, res, next) => {
-        const { status, message, name } = err;
+        const { status, message, name, details={} } = err;
+        //console.dir(err);
         res.status(status || 500).json({
             error: {
                 code: name,
-                message: message
+                message: message,
+                details: details
             }
         });
     });

@@ -1,9 +1,8 @@
 const express = require('express'),
-      router = express.Router();
+      router = express.Router(),
+      applicant = require('../services/applicant.js'),
+      handleError = require('../middleware/handleError.js');
 
-router.post('/applicant', function(req, res, next){
-    console.log('a');
-});
-
+router.post('/applicant', handleError(applicant.add.bind(applicant)));
 
 module.exports = router;
