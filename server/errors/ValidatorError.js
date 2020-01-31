@@ -1,20 +1,18 @@
 class ValidatorError extends Error {
-    constructor(property, _message, errors) {
-        super(_message);
+    constructor(err) {
+        super(err._message);
         this.name = 'ValidatorError';
-        this.property = property;
+        this.property = err.message;
         this.status = 500;
-        this.details = this.makeErrorsObject(errors)
+        this.details = this.makeErrorsObject(err.errors)
     }
 
     makeErrorsObject(errors) {
-      console.log('make')
       let details = {};
-      for (err in errors) {
-         console.dir(err);
-         details[err] = err.kind;
+      for (let err in errors) {
+        details[err] = errors[err]['kind'];
       }
-      this.details = details;
+      return details;
     }
 }
 

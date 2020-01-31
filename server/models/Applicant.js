@@ -27,8 +27,9 @@ const validator = require('validator'),
         return new Promise((resolve, reject) => {
           this.create(applicant, (err, docs) => {
               if (err) {
-                 if(err.name === 'ValidatorError') {
-                    throw(new ValidatorError(err.message, err._message, err.errors))
+                 //console.dir(err);
+                 if(err.name === 'ValidationError') {
+                    reject(new ValidatorError(err))
                  }
                  reject(err);
               }
