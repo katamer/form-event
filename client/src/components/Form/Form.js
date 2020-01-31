@@ -1,6 +1,8 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { required, email } from '../../utils/validate';
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+
+import { required, email } from '../../utils/validators';
+import submit from '../../utils/submit';
 import renderDatePicker from './renderDatePicker/renderDatePicker';
 import renderField from './renderField/renderField';
 
@@ -15,7 +17,7 @@ const FieldLevelValidationForm = ({ handleSubmit, submitting }) => {
   ];
 
   return (
-    <form className="form__wrapper" onSubmit={handleSubmit}>
+    <form className="form__wrapper" onSubmit={handleSubmit(submit)}>
       {
         fields.map(fields => (
           <Field
