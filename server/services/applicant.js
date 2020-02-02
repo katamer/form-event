@@ -12,7 +12,7 @@ class Applicant {
             await this.ApplicantModel.add(req.body);
             res.status(201).json({ message: 'New record was created', error: null});
         } catch (err) {
-          next(err);
+            next(err);
         }
     }
 }

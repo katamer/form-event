@@ -3,7 +3,7 @@ const validator = require('validator'),
       { ValidatorError } = require('../errors'),
       { Schema } = mongoose,
 
-      applicantSchema = new Schema({ // walidacja? raczej sanityzacja
+      applicantSchema = new Schema({ 
         firstName: {
           type: String,
           required: true,
@@ -16,10 +16,10 @@ const validator = require('validator'),
         },
         email: {
           type: String,
-          /*required: true,
-          unique: true, // how to send info that this email exists already?
+          required: true,
+          unique: true, 
           lowercase: true,
-          validate: [ validator.isEmail, 'invalid email']*/
+          validate: [ validator.isEmail, 'invalid email']
         }
       });
 
@@ -27,7 +27,6 @@ const validator = require('validator'),
         return new Promise((resolve, reject) => {
           this.create(applicant, (err, docs) => {
               if (err) {
-                 //console.dir(err);
                  if(err.name === 'ValidationError') {
                     reject(new ValidatorError(err))
                  }
